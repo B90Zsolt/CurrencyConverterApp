@@ -1,0 +1,24 @@
+<div *ngIf="currencies" class="container">
+    <h4>Árfolyamok {{ currencies.date | date:'shortDate' }}</h4>
+    <button class="btn btn-primary" (click)="open('EUR')">EUR átváltás</button>
+    <table class="table table-striped table-responsive-xs">
+        <thead class="thead-dark">
+            <tr>
+                <th>#</th>
+                <th>Pénznem</th>
+                <th>Egység</th>
+                <th>Árfolyam</th>
+                <th>Átváltás</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let rate of currencies.rates; index as i">
+          <td>{{ i + 1 }}</td>
+          <td>{{ rate.name }}</td>
+          <td>{{ rate.unit | number }}</td>
+          <td>{{ rate.value | number }}</td>
+          <td><a class="btn btn-link" (click)="open(rate.name)"><fa-icon [icon]="faMoneyBillAlt" size="lg"></fa-icon></a></td>
+        </tr>
+        </tbody>
+      </table>
+</div>

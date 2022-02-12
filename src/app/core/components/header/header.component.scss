@@ -1,0 +1,8 @@
+.navbar-text {
+    a {
+        cursor: pointer;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

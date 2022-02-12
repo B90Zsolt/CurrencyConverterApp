@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+        <h4>Regisztráció</h4>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+          <form [formGroup]="regForm" (submit)="save()">
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" 
+                  class="form-control" 
+                  formControlName="email"
+                  name="email" 
+                  id="email"
+                  [ngClass]="{ 'error': hasError(regForm.get('email')) }"
+                >
+                <p *ngIf="hasError(regForm.get('email'))" 
+                  class="errorText small">{{ getErrorMsg(regForm.get('email')) }}</p>
+              </div>
+              <div class="form-group">
+                <label for="password">Jelszó</label>
+                <input type="password" 
+                  class="form-control" 
+                  formControlName="password" 
+                  name="password" 
+                  id="password"
+                  [ngClass]="{ 'error': hasError(regForm.get('password')) }"
+                >
+                <p *ngIf="hasError(regForm.get('password'))" 
+                  class="errorText small">{{ getErrorMsg(regForm.get('password')) }}</p>
+              </div>
+              <div class="form-group">
+                <label for="password2">Jelszó ismét</label>
+                <input type="password" 
+                  class="form-control" 
+                  formControlName="password2" 
+                  name="password2" 
+                  id="password2"
+                  [ngClass]="{ 'error': hasError(regForm.get('password2')) }"
+                >
+                <p *ngIf="hasError(regForm.get('password2'))" 
+                  class="errorText small">{{ getErrorMsg(regForm.get('password2')) }}</p>
+              </div>
+              <button type="submit" 
+                  class="btn btn-primary"
+                  [disabled]="!(regForm.valid && regForm.dirty) || submitted"
+              >Regisztráció</button>
+          </form>
+          <p *ngIf="error">
+            <ngb-alert type="danger" [dismissible]="false">Regisztráció sikertelen</ngb-alert>
+          </p>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+        <p><a routerLink="/">Mégsem</a></p>
+      </div>  
+    </div>
+</div>

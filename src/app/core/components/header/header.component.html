@@ -1,0 +1,13 @@
+<header *ngIf="userName">
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" routerLink="/">Pénzváltó</a>
+
+            <span class="navbar-text">
+                {{ userName }} [{{ transform(timeout) }}]
+                <a (click)="logout()">Kijelentkezés</a>
+            </span>
+            
+        </div> 
+    </nav>
+</header>

@@ -1,0 +1,19 @@
+<div class="modal-header">
+    <h4 class="modal-title">{{ rate?.name}} átváltás</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Close')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="input-group is-invalid">
+      <input type="number" #hufAmount (input)="calcAmount(hufAmount.value)" class="form-control">
+      <div class="input-group-append">
+        <span class="input-group-text" id="basic-addon2">HUF</span>
+      </div>
+    </div>
+    <p class="equal">=</p>
+    <p>{{ amount | number:'1.0-2' }} {{ rate?.name }}</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close')">Bezárás</button>
+</div>
